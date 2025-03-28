@@ -27,17 +27,17 @@ defmodule PhoenixImageTools.MixProject do
 
   defp deps do
     [
-      {:phoenix, "~> 1.7.0"},
-      {:phoenix_live_view, "~> 0.19.0"},
-      {:phoenix_html, "~> 3.3"},
-      {:waffle, "~> 1.1"},
-      {:waffle_ecto, "~> 0.0.11"},
-      {:image, "~> 0.37.0"},
-      {:ex_aws, "~> 2.0"},
-      {:ex_aws_s3, "~> 2.0"},
-      {:hackney, "~> 1.9"},
-      {:sweet_xml, "~> 0.7.3"},
-      {:jason, "~> 1.4"},
+      {:phoenix, "~> 1.7.21"},
+      {:phoenix_live_view, "~> 1.0.9"},
+      {:phoenix_html, "~> 4.2.1"},
+      {:waffle, "~> 1.1.9"},
+      {:waffle_ecto, "~> 0.0.12"},
+      {:image, "~> 0.59.0"},
+      {:ex_aws, "~> 2.5.8"},
+      {:ex_aws_s3, "~> 2.5.6"},
+      {:hackney, "~> 1.23"},
+      {:sweet_xml, "~> 0.7.5"},
+      {:jason, "~> 1.4.4"},
 
       # Dev and test deps
       {:ex_doc, "~> 0.29", only: :dev, runtime: false},

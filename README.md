@@ -70,7 +70,7 @@ config :phoenix_image_tools,
 Define your uploader module:
 
 ```elixir
-defmodule YourApp.MediaUploader do
+defmodule MyApp.MediaUploader do
   use PhoenixImageTools.Uploader
 
   # Optional: Override storage directory
@@ -85,12 +85,12 @@ end
 Use the uploader in your Ecto schema:
 
 ```elixir
-defmodule YourApp.Media do
+defmodule MyApp.Media do
   use Ecto.Schema
   use PhoenixImageTools.Schema
 
   schema "media" do
-    field :image, YourApp.MediaUploader.Type
+    field :image, MyApp.MediaUploader.Type
     timestamps()
   end
 
@@ -128,7 +128,7 @@ Display responsive images in your templates:
 <.live_component
   module={PhoenixImageTools.Components.Picture}
   id={"media-#{@media.id}"}
-  url_fun={fn version -> YourApp.MediaUploader.url({@media.image, @media}, version) end}
+  url_fun={fn version -> MyApp.MediaUploader.url({@media.image, @media}, version) end}
   versions={[:xs, :sm, :md, :lg, :xl]}
   base={:original}
   lazy_loading={true}

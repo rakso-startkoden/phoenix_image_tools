@@ -33,7 +33,17 @@ defmodule PhoenixImageTools.Uploader do
       # Define versions based on the configured image sizes
       @versions ([:original, :thumbnail] ++ Keyword.keys(PhoenixImageTools.image_sizes()))
                 |> Enum.uniq()
-                |> List.to_tuple()
+
+      @extension_whitelist ~w(.jpg .jpeg .gif .png .webp)
+
+      def validate({file, _}) do
+        file_extension = file.file_name |> Path.extname() |> String.downcase()
+        Enum.member?(@extension_whitelist, file_extension)
+      end
+
+      def storage_dir(_, {_file, _scope}) do
+        "uploads"
+      end
 
       def filename(version, {file, _scope}) do
         file_name = Path.basename(file.file_name)
