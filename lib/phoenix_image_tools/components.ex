@@ -18,9 +18,9 @@ defmodule PhoenixImageTools.Components do
   """
 
   use Phoenix.Component
-  alias Phoenix.LiveView.JS
 
-  alias PhoenixImageTools
+  alias Phoenix.LiveView.JS
+  alias Phoenix.LiveView.Socket
 
   @doc """
   Renders a responsive picture element with proper srcset attributes.
@@ -320,8 +320,7 @@ defmodule PhoenixImageTools.Components do
 
   def form_upload_field(assigns) do
     assigns =
-      assigns
-      |> assign_new(:label, fn %{name: name} -> String.capitalize("#{name}") end)
+      assign_new(assigns, :label, fn %{name: name} -> String.capitalize("#{name}") end)
 
     ~H"""
     <div class={["image-upload-field", @class]}>
@@ -329,7 +328,7 @@ defmodule PhoenixImageTools.Components do
         <span class="font-semibold"><%= @label %></span>
         
         <%= if @accept || @max_entries || @max_file_size_mb do %>
-          <div class="text-sm text-gray-600 mt-1">
+          <div class="mt-1 text-sm text-gray-600">
             <%= if @accept do %>
               <span>Allowed formats: <%= Enum.join(@accept, ", ") %></span>
             <% end %>
@@ -343,12 +342,12 @@ defmodule PhoenixImageTools.Components do
         <% end %>
       </div>
 
-      <div class="border border-dashed border-gray-300 rounded-lg p-4 bg-gray-50">
-        <div class="text-center mb-4">
+      <div class="rounded-lg border border-dashed border-gray-300 bg-gray-50 p-4">
+        <div class="mb-4 text-center">
           <p><%= @drop_prompt %></p>
           <div class="mt-2">
             <.live_file_input upload={@upload[@name]} class="sr-only" />
-            <button type="button" class="px-4 py-2 bg-gray-100 border border-gray-300 rounded-md text-sm" phx-click={JS.dispatch("click", to: "##{@upload[@name].ref}")}>
+            <button type="button" class="rounded-md border border-gray-300 bg-gray-100 px-4 py-2 text-sm" phx-click={JS.dispatch("click", to: "##{@upload[@name].ref}")}>
               Browse files
             </button>
           </div>
@@ -365,19 +364,19 @@ defmodule PhoenixImageTools.Components do
         <%= if not Enum.empty?(@upload[@name].entries) do %>
           <div class="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
             <%= for entry <- @upload[@name].entries do %>
-              <div class="upload-entry border rounded-lg p-2 bg-white">
-                <div class="aspect-w-1 aspect-h-1 overflow-hidden rounded-md bg-gray-100 mb-2">
-                  <.live_img_preview entry={entry} class="object-cover h-full w-full" />
+              <div class="upload-entry rounded-lg border bg-white p-2">
+                <div class="aspect-w-1 aspect-h-1 mb-2 overflow-hidden rounded-md bg-gray-100">
+                  <.live_img_preview entry={entry} class="h-full w-full object-cover" />
                 </div>
                 
                 <div class="mt-2 space-y-2">
-                  <div class="flex justify-between items-center">
-                    <p class="text-sm text-gray-700 truncate" title={entry.client_name}>
+                  <div class="flex items-center justify-between">
+                    <p class="truncate text-sm text-gray-700" title={entry.client_name}>
                       <%= entry.client_name %>
                     </p>
                     <button 
                       type="button"
-                      class="text-red-600 hover:text-red-800 text-sm"
+                      class="text-sm text-red-600 hover:text-red-800"
                       phx-click="cancel-upload"
                       phx-value-ref={entry.ref}
                       phx-target={@target}
@@ -388,10 +387,10 @@ defmodule PhoenixImageTools.Components do
                   </div>
                   
                   <!-- Progress bar -->
-                  <div class="w-full bg-gray-200 rounded-full h-2">
-                    <div class="bg-blue-600 h-2 rounded-full" style={"width: #{entry.progress}%"}></div>
+                  <div class="h-2 w-full rounded-full bg-gray-200">
+                    <div class="h-2 rounded-full bg-blue-600" style={"width: #{entry.progress}%"}></div>
                   </div>
-                  <p class="text-xs text-gray-500 text-right"><%= entry.progress %>%</p>
+                  <p class="text-right text-xs text-gray-500"><%= entry.progress %>%</p>
                   
                   <!-- Errors -->
                   <%= for err <- upload_errors(@upload[@name], entry) do %>
@@ -470,9 +469,8 @@ defmodule PhoenixImageTools.Components do
 
   This format is compatible with `cast_attachments/4` from `PhoenixImageTools.Schema`.
   """
-  @spec consume_uploads(Phoenix.LiveView.Socket.t(), map(), atom(), keyword()) :: map()
-  def consume_uploads(socket, params, field_key, options \\ [])
-      when is_atom(field_key) and is_map(params) do
+  @spec consume_uploads(Socket.t(), map(), atom(), keyword()) :: map()
+  def consume_uploads(socket, params, field_key, options \\ []) when is_atom(field_key) and is_map(params) do
     defaults = [
       generate_names: false
     ]
@@ -513,8 +511,7 @@ defmodule PhoenixImageTools.Components do
       uploaded_files when is_list(uploaded_files) ->
         # Merge new uploads with existing ones
         upload_params =
-          Enum.reduce(Enum.with_index(uploaded_files), upload_params, fn {uploaded_file, index},
-                                                                         acc ->
+          Enum.reduce(Enum.with_index(uploaded_files), upload_params, fn {uploaded_file, index}, acc ->
             # Use the next available index for the new file
             Map.put(acc, "#{length(Map.keys(upload_params)) + index}", uploaded_file)
           end)
@@ -587,9 +584,8 @@ defmodule PhoenixImageTools.Components do
   )
   ```
   """
-  @spec consume_upload(Phoenix.LiveView.Socket.t(), map(), atom(), keyword()) :: map()
-  def consume_upload(socket, params, field_key, options \\ [])
-      when is_atom(field_key) and is_map(params) do
+  @spec consume_upload(Socket.t(), map(), atom(), keyword()) :: map()
+  def consume_upload(socket, params, field_key, options \\ []) when is_atom(field_key) and is_map(params) do
     defaults = [
       generate_name: false,
       merge_fun: fn params, key, uploaded_file ->
@@ -633,9 +629,7 @@ defmodule PhoenixImageTools.Components do
 
       multiple_files when is_list(multiple_files) ->
         # Warn about multiple files but just use the first one
-        IO.warn(
-          "Multiple files uploaded for single file field #{field_key}, using only the first one."
-        )
+        IO.warn("Multiple files uploaded for single file field #{field_key}, using only the first one.")
 
         options.merge_fun.(params, field_key, List.first(multiple_files))
     end

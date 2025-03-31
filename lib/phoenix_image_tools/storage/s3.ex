@@ -19,8 +19,6 @@ defmodule PhoenixImageTools.Storage.S3 do
   ```
   """
 
-  alias PhoenixImageTools
-
   @doc """
   Uploads a complete set of image sizes to S3.
 

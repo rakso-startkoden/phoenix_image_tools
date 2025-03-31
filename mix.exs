@@ -40,6 +40,8 @@ defmodule PhoenixImageTools.MixProject do
       {:jason, "~> 1.4.4"},
 
       # Dev and test deps
+      {:tailwind_formatter, "~> 0.4.2", only: [:dev, :test], runtime: false},
+      {:styler, "~> 1.4", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.29", only: :dev, runtime: false},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.3", only: [:dev, :test], runtime: false}
@@ -55,7 +57,7 @@ defmodule PhoenixImageTools.MixProject do
 
   defp package do
     [
-      maintainers: ["Your Name"],
+      maintainers: ["Startkoden"],
       licenses: ["MIT"],
       links: %{"GitHub" => @source_url},
       files: ~w(lib .formatter.exs mix.exs README.md LICENSE)

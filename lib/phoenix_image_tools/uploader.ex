@@ -28,11 +28,8 @@ defmodule PhoenixImageTools.Uploader do
       use Waffle.Definition
       use Waffle.Ecto.Definition
 
-      alias PhoenixImageTools
-
       # Define versions based on the configured image sizes
-      @versions ([:original, :thumbnail] ++ Keyword.keys(PhoenixImageTools.image_sizes()))
-                |> Enum.uniq()
+      @versions Enum.uniq([:original, :thumbnail] ++ Keyword.keys(PhoenixImageTools.image_sizes()))
 
       @extension_whitelist ~w(.jpg .jpeg .gif .png .webp)
 
