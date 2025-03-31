@@ -2,7 +2,7 @@ defmodule PhoenixImageTools.MixProject do
   use Mix.Project
 
   @version "0.1.0"
-  @source_url "https://github.com/yourusername/phoenix_image_tools"
+  @source_url "https://github.com/rakso-startkoden/phoenix_image_tools"
 
   def project do
     [
