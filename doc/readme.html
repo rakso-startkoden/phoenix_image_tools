@@ -5,10 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.37.3">
-    <meta name="project" content="phoenix_image_tools v0.1.0">
+    <meta name="project" content="phoenix_image_tools v0.2.0">
 
 
-    <title>PhoenixImageTools — phoenix_image_tools v0.1.0</title>
+    <title>PhoenixImageTools — phoenix_image_tools v0.2.0</title>
 
     <link rel="stylesheet" href="dist/html-elixir-6X3L5KMG.css" />
 
@@ -37,7 +37,7 @@
 phoenix_image_tools
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.1.0
+          v0.2.0
         </div>
       </div>
     </div>
@@ -98,11 +98,11 @@ phoenix_image_tools
   </a>
   <span class="text">Installation</span>
 </h2>
-<p>Add <code class="inline">phoenix_image_tools</code> to your list of dependencies in <code class="inline">mix.exs</code>:</p><pre><code class="makeup elixir" translate="no"><span class="kd">def</span><span class="w"> </span><span class="nf">deps</span><span class="w"> </span><span class="k" data-group-id="7263605217-1">do</span><span class="w">
-  </span><span class="p" data-group-id="7263605217-2">[</span><span class="w">
-    </span><span class="p" data-group-id="7263605217-3">{</span><span class="ss">:phoenix_image_tools</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;~&gt; 0.1.0&quot;</span><span class="p" data-group-id="7263605217-3">}</span><span class="w">
-  </span><span class="p" data-group-id="7263605217-2">]</span><span class="w">
-</span><span class="k" data-group-id="7263605217-1">end</span></code></pre><h2 id="configuration" class="section-heading">
+<p>Add <code class="inline">phoenix_image_tools</code> to your list of dependencies in <code class="inline">mix.exs</code>:</p><pre><code class="makeup elixir" translate="no"><span class="kd">def</span><span class="w"> </span><span class="nf">deps</span><span class="w"> </span><span class="k" data-group-id="1042316577-1">do</span><span class="w">
+  </span><span class="p" data-group-id="1042316577-2">[</span><span class="w">
+    </span><span class="p" data-group-id="1042316577-3">{</span><span class="ss">:phoenix_image_tools</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;~&gt; 0.1.0&quot;</span><span class="p" data-group-id="1042316577-3">}</span><span class="w">
+  </span><span class="p" data-group-id="1042316577-2">]</span><span class="w">
+</span><span class="k" data-group-id="1042316577-1">end</span></code></pre><h2 id="configuration" class="section-heading">
   <a href="#configuration" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
@@ -118,22 +118,22 @@ phoenix_image_tools
 </span><span class="n">config</span><span class="w"> </span><span class="ss">:phoenix_image_tools</span><span class="p">,</span><span class="w">
   </span><span class="ss">output_format</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;webp&quot;</span><span class="p">,</span><span class="w">
   </span><span class="ss">max_age</span><span class="p">:</span><span class="w"> </span><span class="mi">31_536_000</span><span class="p">,</span><span class="w"> </span><span class="c1"># 1 year</span><span class="w">
-  </span><span class="ss">image_sizes</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8331377428-1">[</span><span class="w">
+  </span><span class="ss">image_sizes</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5871319589-1">[</span><span class="w">
     </span><span class="ss">xs</span><span class="p">:</span><span class="w"> </span><span class="mi">320</span><span class="p">,</span><span class="w">
     </span><span class="ss">sm</span><span class="p">:</span><span class="w"> </span><span class="mi">768</span><span class="p">,</span><span class="w">
     </span><span class="ss">md</span><span class="p">:</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w">
     </span><span class="ss">lg</span><span class="p">:</span><span class="w"> </span><span class="mi">1280</span><span class="p">,</span><span class="w">
     </span><span class="ss">xl</span><span class="p">:</span><span class="w"> </span><span class="mi">1536</span><span class="w">
-  </span><span class="p" data-group-id="8331377428-1">]</span></code></pre><h3 id="s3-configuration" class="section-heading">
+  </span><span class="p" data-group-id="5871319589-1">]</span></code></pre><h3 id="s3-configuration" class="section-heading">
   <a href="#s3-configuration" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">S3 Configuration</span>
 </h3>
 <p>PhoenixImageTools uses ExAws for S3 integration:</p><pre><code class="makeup elixir" translate="no"><span class="n">config</span><span class="w"> </span><span class="ss">:ex_aws</span><span class="p">,</span><span class="w">
-  </span><span class="ss">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="nc">System</span><span class="o">.</span><span class="n">get_env</span><span class="p" data-group-id="3764276318-1">(</span><span class="s">&quot;AWS_ACCESS_KEY_ID&quot;</span><span class="p" data-group-id="3764276318-1">)</span><span class="p">,</span><span class="w">
-  </span><span class="ss">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="nc">System</span><span class="o">.</span><span class="n">get_env</span><span class="p" data-group-id="3764276318-2">(</span><span class="s">&quot;AWS_SECRET_ACCESS_KEY&quot;</span><span class="p" data-group-id="3764276318-2">)</span><span class="p">,</span><span class="w">
-  </span><span class="ss">region</span><span class="p">:</span><span class="w"> </span><span class="nc">System</span><span class="o">.</span><span class="n">get_env</span><span class="p" data-group-id="3764276318-3">(</span><span class="s">&quot;AWS_REGION&quot;</span><span class="p" data-group-id="3764276318-3">)</span><span class="w">
+  </span><span class="ss">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="nc">System</span><span class="o">.</span><span class="n">get_env</span><span class="p" data-group-id="3241182885-1">(</span><span class="s">&quot;AWS_ACCESS_KEY_ID&quot;</span><span class="p" data-group-id="3241182885-1">)</span><span class="p">,</span><span class="w">
+  </span><span class="ss">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="nc">System</span><span class="o">.</span><span class="n">get_env</span><span class="p" data-group-id="3241182885-2">(</span><span class="s">&quot;AWS_SECRET_ACCESS_KEY&quot;</span><span class="p" data-group-id="3241182885-2">)</span><span class="p">,</span><span class="w">
+  </span><span class="ss">region</span><span class="p">:</span><span class="w"> </span><span class="nc">System</span><span class="o">.</span><span class="n">get_env</span><span class="p" data-group-id="3241182885-3">(</span><span class="s">&quot;AWS_REGION&quot;</span><span class="p" data-group-id="3241182885-3">)</span><span class="w">
 
 </span><span class="n">config</span><span class="w"> </span><span class="ss">:phoenix_image_tools</span><span class="p">,</span><span class="w">
   </span><span class="ss">bucket</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your-bucket-name&quot;</span><span class="p">,</span><span class="w">
@@ -149,50 +149,50 @@ phoenix_image_tools
   </a>
   <span class="text">Image Uploader</span>
 </h3>
-<p>Define your uploader module:</p><pre><code class="makeup elixir" translate="no"><span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyApp.MediaUploader</span><span class="w"> </span><span class="k" data-group-id="4839281529-1">do</span><span class="w">
+<p>Define your uploader module:</p><pre><code class="makeup elixir" translate="no"><span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyApp.MediaUploader</span><span class="w"> </span><span class="k" data-group-id="0974356714-1">do</span><span class="w">
   </span><span class="kn">use</span><span class="w"> </span><span class="nc">PhoenixImageTools.Uploader</span><span class="w">
 
   </span><span class="c1"># Optional: Override storage directory</span><span class="w">
-  </span><span class="kd">def</span><span class="w"> </span><span class="nf">storage_dir</span><span class="p" data-group-id="4839281529-2">(</span><span class="bp">_</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4839281529-3">{</span><span class="c">_file</span><span class="p">,</span><span class="w"> </span><span class="c">_scope</span><span class="p" data-group-id="4839281529-3">}</span><span class="p" data-group-id="4839281529-2">)</span><span class="w"> </span><span class="k" data-group-id="4839281529-4">do</span><span class="w">
+  </span><span class="kd">def</span><span class="w"> </span><span class="nf">storage_dir</span><span class="p" data-group-id="0974356714-2">(</span><span class="bp">_</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0974356714-3">{</span><span class="c">_file</span><span class="p">,</span><span class="w"> </span><span class="c">_scope</span><span class="p" data-group-id="0974356714-3">}</span><span class="p" data-group-id="0974356714-2">)</span><span class="w"> </span><span class="k" data-group-id="0974356714-4">do</span><span class="w">
     </span><span class="s">&quot;uploads/custom_path&quot;</span><span class="w">
-  </span><span class="k" data-group-id="4839281529-4">end</span><span class="w">
-</span><span class="k" data-group-id="4839281529-1">end</span></code></pre><h3 id="schema-integration" class="section-heading">
+  </span><span class="k" data-group-id="0974356714-4">end</span><span class="w">
+</span><span class="k" data-group-id="0974356714-1">end</span></code></pre><h3 id="schema-integration" class="section-heading">
   <a href="#schema-integration" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Schema Integration</span>
 </h3>
-<p>Use the uploader in your Ecto schema:</p><pre><code class="makeup elixir" translate="no"><span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyApp.Media</span><span class="w"> </span><span class="k" data-group-id="3877156926-1">do</span><span class="w">
+<p>Use the uploader in your Ecto schema:</p><pre><code class="makeup elixir" translate="no"><span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyApp.Media</span><span class="w"> </span><span class="k" data-group-id="3554448042-1">do</span><span class="w">
   </span><span class="kn">use</span><span class="w"> </span><span class="nc">Ecto.Schema</span><span class="w">
   </span><span class="kn">use</span><span class="w"> </span><span class="nc">PhoenixImageTools.Schema</span><span class="w">
 
-  </span><span class="n">schema</span><span class="w"> </span><span class="s">&quot;media&quot;</span><span class="w"> </span><span class="k" data-group-id="3877156926-2">do</span><span class="w">
+  </span><span class="n">schema</span><span class="w"> </span><span class="s">&quot;media&quot;</span><span class="w"> </span><span class="k" data-group-id="3554448042-2">do</span><span class="w">
     </span><span class="n">field</span><span class="w"> </span><span class="ss">:image</span><span class="p">,</span><span class="w"> </span><span class="nc">MyApp.MediaUploader.Type</span><span class="w">
-    </span><span class="n">timestamps</span><span class="p" data-group-id="3877156926-3">(</span><span class="p" data-group-id="3877156926-3">)</span><span class="w">
-  </span><span class="k" data-group-id="3877156926-2">end</span><span class="w">
+    </span><span class="n">timestamps</span><span class="p" data-group-id="3554448042-3">(</span><span class="p" data-group-id="3554448042-3">)</span><span class="w">
+  </span><span class="k" data-group-id="3554448042-2">end</span><span class="w">
 
-  </span><span class="kd">def</span><span class="w"> </span><span class="nf">changeset</span><span class="p" data-group-id="3877156926-4">(</span><span class="n">media</span><span class="p">,</span><span class="w"> </span><span class="n">attrs</span><span class="p" data-group-id="3877156926-4">)</span><span class="w"> </span><span class="k" data-group-id="3877156926-5">do</span><span class="w">
+  </span><span class="kd">def</span><span class="w"> </span><span class="nf">changeset</span><span class="p" data-group-id="3554448042-4">(</span><span class="n">media</span><span class="p">,</span><span class="w"> </span><span class="n">attrs</span><span class="p" data-group-id="3554448042-4">)</span><span class="w"> </span><span class="k" data-group-id="3554448042-5">do</span><span class="w">
     </span><span class="n">media</span><span class="w">
-    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">cast</span><span class="p" data-group-id="3877156926-6">(</span><span class="n">attrs</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3877156926-7">[</span><span class="ss">:image</span><span class="p" data-group-id="3877156926-7">]</span><span class="p" data-group-id="3877156926-6">)</span><span class="w">
-    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">cast_attachments</span><span class="p" data-group-id="3877156926-8">(</span><span class="n">attrs</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3877156926-9">[</span><span class="ss">:image</span><span class="p" data-group-id="3877156926-9">]</span><span class="p" data-group-id="3877156926-8">)</span><span class="w">
-    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">validate_required</span><span class="p" data-group-id="3877156926-10">(</span><span class="p" data-group-id="3877156926-11">[</span><span class="ss">:image</span><span class="p" data-group-id="3877156926-11">]</span><span class="p" data-group-id="3877156926-10">)</span><span class="w">
-  </span><span class="k" data-group-id="3877156926-5">end</span><span class="w">
-</span><span class="k" data-group-id="3877156926-1">end</span></code></pre><h3 id="controller-example" class="section-heading">
+    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">cast</span><span class="p" data-group-id="3554448042-6">(</span><span class="n">attrs</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3554448042-7">[</span><span class="ss">:image</span><span class="p" data-group-id="3554448042-7">]</span><span class="p" data-group-id="3554448042-6">)</span><span class="w">
+    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">cast_attachments</span><span class="p" data-group-id="3554448042-8">(</span><span class="n">attrs</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3554448042-9">[</span><span class="ss">:image</span><span class="p" data-group-id="3554448042-9">]</span><span class="p" data-group-id="3554448042-8">)</span><span class="w">
+    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">validate_required</span><span class="p" data-group-id="3554448042-10">(</span><span class="p" data-group-id="3554448042-11">[</span><span class="ss">:image</span><span class="p" data-group-id="3554448042-11">]</span><span class="p" data-group-id="3554448042-10">)</span><span class="w">
+  </span><span class="k" data-group-id="3554448042-5">end</span><span class="w">
+</span><span class="k" data-group-id="3554448042-1">end</span></code></pre><h3 id="controller-example" class="section-heading">
   <a href="#controller-example" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Controller Example</span>
 </h3>
-<p>Upload an image in your controller:</p><pre><code class="makeup elixir" translate="no"><span class="kd">def</span><span class="w"> </span><span class="nf">create</span><span class="p" data-group-id="5303262567-1">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5303262567-2">%{</span><span class="s">&quot;media&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">media_params</span><span class="p" data-group-id="5303262567-2">}</span><span class="p" data-group-id="5303262567-1">)</span><span class="w"> </span><span class="k" data-group-id="5303262567-3">do</span><span class="w">
-  </span><span class="k">case</span><span class="w"> </span><span class="nc">Media</span><span class="o">.</span><span class="n">create_media</span><span class="p" data-group-id="5303262567-4">(</span><span class="n">media_params</span><span class="p" data-group-id="5303262567-4">)</span><span class="w"> </span><span class="k" data-group-id="5303262567-5">do</span><span class="w">
-    </span><span class="p" data-group-id="5303262567-6">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">media</span><span class="p" data-group-id="5303262567-6">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+<p>Upload an image in your controller:</p><pre><code class="makeup elixir" translate="no"><span class="kd">def</span><span class="w"> </span><span class="nf">create</span><span class="p" data-group-id="8802711647-1">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="8802711647-2">%{</span><span class="s">&quot;media&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">media_params</span><span class="p" data-group-id="8802711647-2">}</span><span class="p" data-group-id="8802711647-1">)</span><span class="w"> </span><span class="k" data-group-id="8802711647-3">do</span><span class="w">
+  </span><span class="k">case</span><span class="w"> </span><span class="nc">Media</span><span class="o">.</span><span class="n">create_media</span><span class="p" data-group-id="8802711647-4">(</span><span class="n">media_params</span><span class="p" data-group-id="8802711647-4">)</span><span class="w"> </span><span class="k" data-group-id="8802711647-5">do</span><span class="w">
+    </span><span class="p" data-group-id="8802711647-6">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">media</span><span class="p" data-group-id="8802711647-6">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
       </span><span class="c1"># Successfully uploaded and processed</span><span class="w">
-      </span><span class="n">redirect</span><span class="p" data-group-id="5303262567-7">(</span><span class="ss">to</span><span class="p">:</span><span class="w"> </span><span class="nc">Routes</span><span class="o">.</span><span class="n">media_path</span><span class="p" data-group-id="5303262567-8">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="ss">:show</span><span class="p">,</span><span class="w"> </span><span class="n">media</span><span class="p" data-group-id="5303262567-8">)</span><span class="p" data-group-id="5303262567-7">)</span><span class="w">
-    </span><span class="p" data-group-id="5303262567-9">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="n">changeset</span><span class="p" data-group-id="5303262567-9">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+      </span><span class="n">redirect</span><span class="p" data-group-id="8802711647-7">(</span><span class="ss">to</span><span class="p">:</span><span class="w"> </span><span class="nc">Routes</span><span class="o">.</span><span class="n">media_path</span><span class="p" data-group-id="8802711647-8">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="ss">:show</span><span class="p">,</span><span class="w"> </span><span class="n">media</span><span class="p" data-group-id="8802711647-8">)</span><span class="p" data-group-id="8802711647-7">)</span><span class="w">
+    </span><span class="p" data-group-id="8802711647-9">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="n">changeset</span><span class="p" data-group-id="8802711647-9">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
       </span><span class="c1"># Handle error</span><span class="w">
-      </span><span class="n">render</span><span class="p" data-group-id="5303262567-10">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;new.html&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">changeset</span><span class="p">:</span><span class="w"> </span><span class="n">changeset</span><span class="p" data-group-id="5303262567-10">)</span><span class="w">
-  </span><span class="k" data-group-id="5303262567-5">end</span><span class="w">
-</span><span class="k" data-group-id="5303262567-3">end</span></code></pre><h3 id="liveview-component" class="section-heading">
+      </span><span class="n">render</span><span class="p" data-group-id="8802711647-10">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;new.html&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">changeset</span><span class="p">:</span><span class="w"> </span><span class="n">changeset</span><span class="p" data-group-id="8802711647-10">)</span><span class="w">
+  </span><span class="k" data-group-id="8802711647-5">end</span><span class="w">
+</span><span class="k" data-group-id="8802711647-3">end</span></code></pre><h3 id="liveview-component" class="section-heading">
   <a href="#liveview-component" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
@@ -221,27 +221,27 @@ phoenix_image_tools
   <span class="text">Image Processing Options</span>
 </h3>
 <p>Configure image processing options:</p><pre><code class="makeup elixir" translate="no"><span class="n">config</span><span class="w"> </span><span class="ss">:phoenix_image_tools</span><span class="p">,</span><span class="w">
-  </span><span class="ss">thumbnail_options</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7917776162-1">[</span><span class="p" data-group-id="7917776162-1">]</span><span class="p">,</span><span class="w">
-  </span><span class="ss">stream_image_options</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7917776162-2">[</span><span class="w">
+  </span><span class="ss">thumbnail_options</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1237461168-1">[</span><span class="p" data-group-id="1237461168-1">]</span><span class="p">,</span><span class="w">
+  </span><span class="ss">stream_image_options</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1237461168-2">[</span><span class="w">
     </span><span class="ss">suffix</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;.webp&quot;</span><span class="p">,</span><span class="w">
     </span><span class="ss">buffer_size</span><span class="p">:</span><span class="w"> </span><span class="mi">5_242_880</span><span class="p">,</span><span class="w">
     </span><span class="ss">minimize_file_size</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w">
     </span><span class="ss">quality</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span><span class="w">
     </span><span class="ss">effort</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p" data-group-id="7917776162-2">]</span><span class="p">,</span><span class="w">
-  </span><span class="ss">write_image_options</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7917776162-3">[</span><span class="w">
+  </span><span class="p" data-group-id="1237461168-2">]</span><span class="p">,</span><span class="w">
+  </span><span class="ss">write_image_options</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1237461168-3">[</span><span class="w">
     </span><span class="ss">minimize_file_size</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w">
     </span><span class="ss">quality</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span><span class="w">
     </span><span class="ss">effort</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p" data-group-id="7917776162-3">]</span></code></pre><h2 id="example-direct-upload" class="section-heading">
+  </span><span class="p" data-group-id="1237461168-3">]</span></code></pre><h2 id="example-direct-upload" class="section-heading">
   <a href="#example-direct-upload" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Example: Direct Upload</span>
 </h2>
-<p>Process and upload an image directly:</p><pre><code class="makeup elixir" translate="no"><span class="kd">def</span><span class="w"> </span><span class="nf">upload_image</span><span class="p" data-group-id="5576492160-1">(</span><span class="p" data-group-id="5576492160-2">%</span><span class="nc" data-group-id="5576492160-2">Plug.Upload</span><span class="p" data-group-id="5576492160-2">{</span><span class="p" data-group-id="5576492160-2">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">image_upload</span><span class="p" data-group-id="5576492160-1">)</span><span class="w"> </span><span class="k" data-group-id="5576492160-3">do</span><span class="w">
-  </span><span class="nc">PhoenixImageTools</span><span class="o">.</span><span class="n">upload_image</span><span class="p" data-group-id="5576492160-4">(</span><span class="n">image_upload</span><span class="p" data-group-id="5576492160-4">)</span><span class="w">
-</span><span class="k" data-group-id="5576492160-3">end</span></code></pre><h2 id="dependencies" class="section-heading">
+<p>Process and upload an image directly:</p><pre><code class="makeup elixir" translate="no"><span class="kd">def</span><span class="w"> </span><span class="nf">upload_image</span><span class="p" data-group-id="8929000209-1">(</span><span class="p" data-group-id="8929000209-2">%</span><span class="nc" data-group-id="8929000209-2">Plug.Upload</span><span class="p" data-group-id="8929000209-2">{</span><span class="p" data-group-id="8929000209-2">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">image_upload</span><span class="p" data-group-id="8929000209-1">)</span><span class="w"> </span><span class="k" data-group-id="8929000209-3">do</span><span class="w">
+  </span><span class="nc">PhoenixImageTools</span><span class="o">.</span><span class="n">upload_image</span><span class="p" data-group-id="8929000209-4">(</span><span class="n">image_upload</span><span class="p" data-group-id="8929000209-4">)</span><span class="w">
+</span><span class="k" data-group-id="8929000209-3">end</span></code></pre><h2 id="dependencies" class="section-heading">
   <a href="#dependencies" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
@@ -283,11 +283,11 @@ API Reference
       <p>
 
           <span class="line">
-            <a href="https://hex.pm/packages/phoenix_image_tools/0.1.0" class="footer-hex-package">Hex Package</a>
+            <a href="https://hex.pm/packages/phoenix_image_tools/0.2.0" class="footer-hex-package">Hex Package</a>
 
-            <a href="https://preview.hex.pm/preview/phoenix_image_tools/0.1.0">Hex Preview</a>
+            <a href="https://preview.hex.pm/preview/phoenix_image_tools/0.2.0">Hex Preview</a>
 
-              (<a href="https://preview.hex.pm/preview/phoenix_image_tools/0.1.0/show/README.md">current file</a>)
+              (<a href="https://preview.hex.pm/preview/phoenix_image_tools/0.2.0/show/README.md">current file</a>)
 
           </span>
 

@@ -5,10 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.37.3">
-    <meta name="project" content="phoenix_image_tools v0.1.0">
+    <meta name="project" content="phoenix_image_tools v0.2.0">
 
 
-    <title>PhoenixImageTools.Components — phoenix_image_tools v0.1.0</title>
+    <title>PhoenixImageTools.Components — phoenix_image_tools v0.2.0</title>
 
     <link rel="stylesheet" href="dist/html-elixir-6X3L5KMG.css" />
 
@@ -37,7 +37,7 @@
 phoenix_image_tools
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.1.0
+          v0.2.0
         </div>
       </div>
     </div>
@@ -76,7 +76,7 @@ phoenix_image_tools
   <div class="heading-with-actions top-heading">
     <h1>
       <span translate="no">PhoenixImageTools.Components</span> 
-      <small class="app-vsn" translate="no">(phoenix_image_tools v0.1.0)</small>
+      <small class="app-vsn" translate="no">(phoenix_image_tools v0.2.0)</small>
 
     </h1>
 
@@ -240,34 +240,34 @@ one file to be uploaded at a time.</p><h2 id="consume_upload/4-parameters" class
   <span class="text">Examples</span>
 </h2>
 <pre><code class="makeup elixir" translate="no"><span class="c1"># In a LiveView handle_event function</span><span class="w">
-</span><span class="kd">def</span><span class="w"> </span><span class="nf">handle_event</span><span class="p" data-group-id="0398582806-1">(</span><span class="s">&quot;save&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0398582806-2">%{</span><span class="s">&quot;user&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">user_params</span><span class="p" data-group-id="0398582806-2">}</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="0398582806-1">)</span><span class="w"> </span><span class="k" data-group-id="0398582806-3">do</span><span class="w">
+</span><span class="kd">def</span><span class="w"> </span><span class="nf">handle_event</span><span class="p" data-group-id="2658413915-1">(</span><span class="s">&quot;save&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2658413915-2">%{</span><span class="s">&quot;user&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">user_params</span><span class="p" data-group-id="2658413915-2">}</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="2658413915-1">)</span><span class="w"> </span><span class="k" data-group-id="2658413915-3">do</span><span class="w">
   </span><span class="n">user_params</span><span class="w"> </span><span class="o">=</span><span class="w">
-    </span><span class="nc">PhoenixImageTools.Components</span><span class="o">.</span><span class="n">consume_upload</span><span class="p" data-group-id="0398582806-4">(</span><span class="w">
+    </span><span class="nc">PhoenixImageTools.Components</span><span class="o">.</span><span class="n">consume_upload</span><span class="p" data-group-id="2658413915-4">(</span><span class="w">
       </span><span class="n">socket</span><span class="p">,</span><span class="w"> 
       </span><span class="n">user_params</span><span class="p">,</span><span class="w"> 
       </span><span class="ss">:avatar</span><span class="p">,</span><span class="w"> 
       </span><span class="ss">generate_name</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="w">
-    </span><span class="p" data-group-id="0398582806-4">)</span><span class="w">
+    </span><span class="p" data-group-id="2658413915-4">)</span><span class="w">
   
-  </span><span class="k">case</span><span class="w"> </span><span class="nc">Accounts</span><span class="o">.</span><span class="n">update_user</span><span class="p" data-group-id="0398582806-5">(</span><span class="n">socket</span><span class="o">.</span><span class="n">assigns</span><span class="o">.</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">user_params</span><span class="p" data-group-id="0398582806-5">)</span><span class="w"> </span><span class="k" data-group-id="0398582806-6">do</span><span class="w">
-    </span><span class="p" data-group-id="0398582806-7">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p" data-group-id="0398582806-7">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
-      </span><span class="p" data-group-id="0398582806-8">{</span><span class="ss">:noreply</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_flash</span><span class="p" data-group-id="0398582806-9">(</span><span class="ss">:info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Profile updated&quot;</span><span class="p" data-group-id="0398582806-9">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">assign</span><span class="p" data-group-id="0398582806-10">(</span><span class="ss">:user</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p" data-group-id="0398582806-10">)</span><span class="p" data-group-id="0398582806-8">}</span><span class="w">
+  </span><span class="k">case</span><span class="w"> </span><span class="nc">Accounts</span><span class="o">.</span><span class="n">update_user</span><span class="p" data-group-id="2658413915-5">(</span><span class="n">socket</span><span class="o">.</span><span class="n">assigns</span><span class="o">.</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">user_params</span><span class="p" data-group-id="2658413915-5">)</span><span class="w"> </span><span class="k" data-group-id="2658413915-6">do</span><span class="w">
+    </span><span class="p" data-group-id="2658413915-7">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p" data-group-id="2658413915-7">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+      </span><span class="p" data-group-id="2658413915-8">{</span><span class="ss">:noreply</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_flash</span><span class="p" data-group-id="2658413915-9">(</span><span class="ss">:info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Profile updated&quot;</span><span class="p" data-group-id="2658413915-9">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">assign</span><span class="p" data-group-id="2658413915-10">(</span><span class="ss">:user</span><span class="p">,</span><span class="w"> </span><span class="n">user</span><span class="p" data-group-id="2658413915-10">)</span><span class="p" data-group-id="2658413915-8">}</span><span class="w">
     
-    </span><span class="p" data-group-id="0398582806-11">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="n">changeset</span><span class="p" data-group-id="0398582806-11">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
-      </span><span class="p" data-group-id="0398582806-12">{</span><span class="ss">:noreply</span><span class="p">,</span><span class="w"> </span><span class="n">assign_form</span><span class="p" data-group-id="0398582806-13">(</span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="n">changeset</span><span class="p" data-group-id="0398582806-13">)</span><span class="p" data-group-id="0398582806-12">}</span><span class="w">
-  </span><span class="k" data-group-id="0398582806-6">end</span><span class="w">
-</span><span class="k" data-group-id="0398582806-3">end</span></code></pre><p>With custom merge function:</p><pre><code class="makeup elixir" translate="no"><span class="c1"># Custom merge that handles nested params</span><span class="w">
-</span><span class="n">merge_fun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k" data-group-id="9550473805-1">fn</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">uploaded_file</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
-  </span><span class="n">put_in</span><span class="p" data-group-id="9550473805-2">(</span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9550473805-3">[</span><span class="s">&quot;profile&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;{key}&quot;</span><span class="p" data-group-id="9550473805-3">]</span><span class="p">,</span><span class="w"> </span><span class="n">uploaded_file</span><span class="p" data-group-id="9550473805-2">)</span><span class="w">
-</span><span class="k" data-group-id="9550473805-1">end</span><span class="w">
+    </span><span class="p" data-group-id="2658413915-11">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="n">changeset</span><span class="p" data-group-id="2658413915-11">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+      </span><span class="p" data-group-id="2658413915-12">{</span><span class="ss">:noreply</span><span class="p">,</span><span class="w"> </span><span class="n">assign_form</span><span class="p" data-group-id="2658413915-13">(</span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="n">changeset</span><span class="p" data-group-id="2658413915-13">)</span><span class="p" data-group-id="2658413915-12">}</span><span class="w">
+  </span><span class="k" data-group-id="2658413915-6">end</span><span class="w">
+</span><span class="k" data-group-id="2658413915-3">end</span></code></pre><p>With custom merge function:</p><pre><code class="makeup elixir" translate="no"><span class="c1"># Custom merge that handles nested params</span><span class="w">
+</span><span class="n">merge_fun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k" data-group-id="5659002269-1">fn</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">uploaded_file</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+  </span><span class="n">put_in</span><span class="p" data-group-id="5659002269-2">(</span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5659002269-3">[</span><span class="s">&quot;profile&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;{key}&quot;</span><span class="p" data-group-id="5659002269-3">]</span><span class="p">,</span><span class="w"> </span><span class="n">uploaded_file</span><span class="p" data-group-id="5659002269-2">)</span><span class="w">
+</span><span class="k" data-group-id="5659002269-1">end</span><span class="w">
 
-</span><span class="nc">PhoenixImageTools.Components</span><span class="o">.</span><span class="n">consume_upload</span><span class="p" data-group-id="9550473805-4">(</span><span class="w">
+</span><span class="nc">PhoenixImageTools.Components</span><span class="o">.</span><span class="n">consume_upload</span><span class="p" data-group-id="5659002269-4">(</span><span class="w">
   </span><span class="n">socket</span><span class="p">,</span><span class="w"> 
   </span><span class="n">user_params</span><span class="p">,</span><span class="w"> 
   </span><span class="ss">:avatar</span><span class="p">,</span><span class="w"> 
   </span><span class="ss">generate_name</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w">
   </span><span class="ss">merge_fun</span><span class="p">:</span><span class="w"> </span><span class="n">merge_fun</span><span class="w">
-</span><span class="p" data-group-id="9550473805-4">)</span></code></pre>
+</span><span class="p" data-group-id="5659002269-4">)</span></code></pre>
   </section>
 </section>
 <section class="detail" id="consume_uploads/4">
@@ -318,26 +318,26 @@ params map, making it ready for changesets. It's designed to work with the
   <span class="text">Examples</span>
 </h2>
 <pre><code class="makeup elixir" translate="no"><span class="c1"># In a LiveView handle_event function</span><span class="w">
-</span><span class="kd">def</span><span class="w"> </span><span class="nf">handle_event</span><span class="p" data-group-id="3635759760-1">(</span><span class="s">&quot;save&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3635759760-2">%{</span><span class="s">&quot;product&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">product_params</span><span class="p" data-group-id="3635759760-2">}</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="3635759760-1">)</span><span class="w"> </span><span class="k" data-group-id="3635759760-3">do</span><span class="w">
+</span><span class="kd">def</span><span class="w"> </span><span class="nf">handle_event</span><span class="p" data-group-id="5140412873-1">(</span><span class="s">&quot;save&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5140412873-2">%{</span><span class="s">&quot;product&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">product_params</span><span class="p" data-group-id="5140412873-2">}</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="5140412873-1">)</span><span class="w"> </span><span class="k" data-group-id="5140412873-3">do</span><span class="w">
   </span><span class="n">product_params</span><span class="w"> </span><span class="o">=</span><span class="w">
-    </span><span class="nc">PhoenixImageTools.Components</span><span class="o">.</span><span class="n">consume_uploads</span><span class="p" data-group-id="3635759760-4">(</span><span class="w">
+    </span><span class="nc">PhoenixImageTools.Components</span><span class="o">.</span><span class="n">consume_uploads</span><span class="p" data-group-id="5140412873-4">(</span><span class="w">
       </span><span class="n">socket</span><span class="p">,</span><span class="w"> 
       </span><span class="n">product_params</span><span class="p">,</span><span class="w"> 
       </span><span class="ss">:images</span><span class="p">,</span><span class="w"> 
       </span><span class="ss">generate_names</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="w">
-    </span><span class="p" data-group-id="3635759760-4">)</span><span class="w">
+    </span><span class="p" data-group-id="5140412873-4">)</span><span class="w">
   
-  </span><span class="k">case</span><span class="w"> </span><span class="nc">Products</span><span class="o">.</span><span class="n">create_product</span><span class="p" data-group-id="3635759760-5">(</span><span class="n">product_params</span><span class="p" data-group-id="3635759760-5">)</span><span class="w"> </span><span class="k" data-group-id="3635759760-6">do</span><span class="w">
-    </span><span class="p" data-group-id="3635759760-7">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">product</span><span class="p" data-group-id="3635759760-7">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
-      </span><span class="p" data-group-id="3635759760-8">{</span><span class="ss">:noreply</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_flash</span><span class="p" data-group-id="3635759760-9">(</span><span class="ss">:info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Product created&quot;</span><span class="p" data-group-id="3635759760-9">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">push_navigate</span><span class="p" data-group-id="3635759760-10">(</span><span class="ss">to</span><span class="p">:</span><span class="w"> </span><span class="sx">~p&quot;/products&quot;</span><span class="p" data-group-id="3635759760-10">)</span><span class="p" data-group-id="3635759760-8">}</span><span class="w">
+  </span><span class="k">case</span><span class="w"> </span><span class="nc">Products</span><span class="o">.</span><span class="n">create_product</span><span class="p" data-group-id="5140412873-5">(</span><span class="n">product_params</span><span class="p" data-group-id="5140412873-5">)</span><span class="w"> </span><span class="k" data-group-id="5140412873-6">do</span><span class="w">
+    </span><span class="p" data-group-id="5140412873-7">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">product</span><span class="p" data-group-id="5140412873-7">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+      </span><span class="p" data-group-id="5140412873-8">{</span><span class="ss">:noreply</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_flash</span><span class="p" data-group-id="5140412873-9">(</span><span class="ss">:info</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Product created&quot;</span><span class="p" data-group-id="5140412873-9">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">push_navigate</span><span class="p" data-group-id="5140412873-10">(</span><span class="ss">to</span><span class="p">:</span><span class="w"> </span><span class="sx">~p&quot;/products&quot;</span><span class="p" data-group-id="5140412873-10">)</span><span class="p" data-group-id="5140412873-8">}</span><span class="w">
     
-    </span><span class="p" data-group-id="3635759760-11">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="n">changeset</span><span class="p" data-group-id="3635759760-11">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
-      </span><span class="p" data-group-id="3635759760-12">{</span><span class="ss">:noreply</span><span class="p">,</span><span class="w"> </span><span class="n">assign_form</span><span class="p" data-group-id="3635759760-13">(</span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="n">changeset</span><span class="p" data-group-id="3635759760-13">)</span><span class="p" data-group-id="3635759760-12">}</span><span class="w">
-  </span><span class="k" data-group-id="3635759760-6">end</span><span class="w">
-</span><span class="k" data-group-id="3635759760-3">end</span></code></pre><p>The files will be available in your changeset as a list of maps in the format:</p><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="1386472637-1">%{</span><span class="w">
-  </span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="1386472637-2">%{</span><span class="s">&quot;delete&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;false&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;/path/to/file.jpg&quot;</span><span class="p" data-group-id="1386472637-2">}</span><span class="p">,</span><span class="w">
-  </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="1386472637-3">%{</span><span class="s">&quot;delete&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;false&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;/path/to/another_file.png&quot;</span><span class="p" data-group-id="1386472637-3">}</span><span class="w">
-</span><span class="p" data-group-id="1386472637-1">}</span></code></pre><p>This format is compatible with <code class="inline">cast_attachments/4</code> from <a href="PhoenixImageTools.Schema.html"><code class="inline">PhoenixImageTools.Schema</code></a>.</p>
+    </span><span class="p" data-group-id="5140412873-11">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="n">changeset</span><span class="p" data-group-id="5140412873-11">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+      </span><span class="p" data-group-id="5140412873-12">{</span><span class="ss">:noreply</span><span class="p">,</span><span class="w"> </span><span class="n">assign_form</span><span class="p" data-group-id="5140412873-13">(</span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="n">changeset</span><span class="p" data-group-id="5140412873-13">)</span><span class="p" data-group-id="5140412873-12">}</span><span class="w">
+  </span><span class="k" data-group-id="5140412873-6">end</span><span class="w">
+</span><span class="k" data-group-id="5140412873-3">end</span></code></pre><p>The files will be available in your changeset as a list of maps in the format:</p><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="6572574270-1">%{</span><span class="w">
+  </span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="6572574270-2">%{</span><span class="s">&quot;delete&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;false&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;/path/to/file.jpg&quot;</span><span class="p" data-group-id="6572574270-2">}</span><span class="p">,</span><span class="w">
+  </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p" data-group-id="6572574270-3">%{</span><span class="s">&quot;delete&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;false&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;file&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;/path/to/another_file.png&quot;</span><span class="p" data-group-id="6572574270-3">}</span><span class="w">
+</span><span class="p" data-group-id="6572574270-1">}</span></code></pre><p>This format is compatible with <code class="inline">cast_attachments/4</code> from <a href="PhoenixImageTools.Schema.html"><code class="inline">PhoenixImageTools.Schema</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="form_upload_field/1">
@@ -404,34 +404,34 @@ supporting both new uploads and displaying previously uploaded images.</p><h2 id
       &lt;/div&gt;
     &lt;/.inputs_for&gt;
   &lt;/:previous_uploads&gt;
-&lt;/.form_upload_field&gt;</code></pre><p>In the LiveView module, you'll need to set up uploads:</p><pre><code class="makeup elixir" translate="no"><span class="kd">def</span><span class="w"> </span><span class="nf">mount</span><span class="p" data-group-id="3033298385-1">(</span><span class="c">_params</span><span class="p">,</span><span class="w"> </span><span class="c">_session</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="3033298385-1">)</span><span class="w"> </span><span class="k" data-group-id="3033298385-2">do</span><span class="w">
+&lt;/.form_upload_field&gt;</code></pre><p>In the LiveView module, you'll need to set up uploads:</p><pre><code class="makeup elixir" translate="no"><span class="kd">def</span><span class="w"> </span><span class="nf">mount</span><span class="p" data-group-id="1274508569-1">(</span><span class="c">_params</span><span class="p">,</span><span class="w"> </span><span class="c">_session</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="1274508569-1">)</span><span class="w"> </span><span class="k" data-group-id="1274508569-2">do</span><span class="w">
   </span><span class="n">socket</span><span class="w"> </span><span class="o">=</span><span class="w">
     </span><span class="n">socket</span><span class="w">
-    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">assign_form</span><span class="p" data-group-id="3033298385-3">(</span><span class="n">...</span><span class="p" data-group-id="3033298385-3">)</span><span class="w">
-    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">allow_upload</span><span class="p" data-group-id="3033298385-4">(</span><span class="ss">:images</span><span class="p">,</span><span class="w"> 
+    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">assign_form</span><span class="p" data-group-id="1274508569-3">(</span><span class="n">...</span><span class="p" data-group-id="1274508569-3">)</span><span class="w">
+    </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">allow_upload</span><span class="p" data-group-id="1274508569-4">(</span><span class="ss">:images</span><span class="p">,</span><span class="w"> 
         </span><span class="ss">accept</span><span class="p">:</span><span class="w"> </span><span class="sx">~w(.jpg .jpeg .png .webp)</span><span class="p">,</span><span class="w"> 
         </span><span class="ss">max_entries</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> 
         </span><span class="ss">max_file_size</span><span class="p">:</span><span class="w"> </span><span class="mi">10_000_000</span><span class="w">
-      </span><span class="p" data-group-id="3033298385-4">)</span><span class="w">
+      </span><span class="p" data-group-id="1274508569-4">)</span><span class="w">
     
-  </span><span class="p" data-group-id="3033298385-5">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="3033298385-5">}</span><span class="w">
-</span><span class="k" data-group-id="3033298385-2">end</span><span class="w">
+  </span><span class="p" data-group-id="1274508569-5">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="1274508569-5">}</span><span class="w">
+</span><span class="k" data-group-id="1274508569-2">end</span><span class="w">
 
-</span><span class="kd">def</span><span class="w"> </span><span class="nf">handle_event</span><span class="p" data-group-id="3033298385-6">(</span><span class="s">&quot;save&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3033298385-7">%{</span><span class="s">&quot;entity&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">entity_params</span><span class="p" data-group-id="3033298385-7">}</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="3033298385-6">)</span><span class="w"> </span><span class="k" data-group-id="3033298385-8">do</span><span class="w">
+</span><span class="kd">def</span><span class="w"> </span><span class="nf">handle_event</span><span class="p" data-group-id="1274508569-6">(</span><span class="s">&quot;save&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1274508569-7">%{</span><span class="s">&quot;entity&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">entity_params</span><span class="p" data-group-id="1274508569-7">}</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="1274508569-6">)</span><span class="w"> </span><span class="k" data-group-id="1274508569-8">do</span><span class="w">
   </span><span class="n">entity_params</span><span class="w"> </span><span class="o">=</span><span class="w">
-    </span><span class="nc">PhoenixImageTools.Components</span><span class="o">.</span><span class="n">consume_uploads</span><span class="p" data-group-id="3033298385-9">(</span><span class="w">
+    </span><span class="nc">PhoenixImageTools.Components</span><span class="o">.</span><span class="n">consume_uploads</span><span class="p" data-group-id="1274508569-9">(</span><span class="w">
       </span><span class="n">socket</span><span class="p">,</span><span class="w"> 
       </span><span class="n">entity_params</span><span class="p">,</span><span class="w"> 
       </span><span class="ss">:images</span><span class="p">,</span><span class="w"> 
       </span><span class="ss">generate_names</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="w">
-    </span><span class="p" data-group-id="3033298385-9">)</span><span class="w">
+    </span><span class="p" data-group-id="1274508569-9">)</span><span class="w">
     
   </span><span class="c1"># Continue with saving logic</span><span class="w">
-</span><span class="k" data-group-id="3033298385-8">end</span><span class="w">
+</span><span class="k" data-group-id="1274508569-8">end</span><span class="w">
 
-</span><span class="kd">def</span><span class="w"> </span><span class="nf">handle_event</span><span class="p" data-group-id="3033298385-10">(</span><span class="s">&quot;cancel-upload&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3033298385-11">%{</span><span class="s">&quot;ref&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">ref</span><span class="p" data-group-id="3033298385-11">}</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="3033298385-10">)</span><span class="w"> </span><span class="k" data-group-id="3033298385-12">do</span><span class="w">
-  </span><span class="p" data-group-id="3033298385-13">{</span><span class="ss">:noreply</span><span class="p">,</span><span class="w"> </span><span class="n">cancel_upload</span><span class="p" data-group-id="3033298385-14">(</span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="ss">:images</span><span class="p">,</span><span class="w"> </span><span class="n">ref</span><span class="p" data-group-id="3033298385-14">)</span><span class="p" data-group-id="3033298385-13">}</span><span class="w">
-</span><span class="k" data-group-id="3033298385-12">end</span></code></pre><h2 id="form_upload_field/1-attributes" class="section-heading">
+</span><span class="kd">def</span><span class="w"> </span><span class="nf">handle_event</span><span class="p" data-group-id="1274508569-10">(</span><span class="s">&quot;cancel-upload&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1274508569-11">%{</span><span class="s">&quot;ref&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="n">ref</span><span class="p" data-group-id="1274508569-11">}</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="1274508569-10">)</span><span class="w"> </span><span class="k" data-group-id="1274508569-12">do</span><span class="w">
+  </span><span class="p" data-group-id="1274508569-13">{</span><span class="ss">:noreply</span><span class="p">,</span><span class="w"> </span><span class="n">cancel_upload</span><span class="p" data-group-id="1274508569-14">(</span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="ss">:images</span><span class="p">,</span><span class="w"> </span><span class="n">ref</span><span class="p" data-group-id="1274508569-14">)</span><span class="p" data-group-id="1274508569-13">}</span><span class="w">
+</span><span class="k" data-group-id="1274508569-12">end</span></code></pre><h2 id="form_upload_field/1-attributes" class="section-heading">
   <a href="#form_upload_field/1-attributes" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
@@ -508,10 +508,10 @@ them for insertion into database records. See its documentation for details.</p>
   </a>
   <span class="text">Examples</span>
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="nc">PhoenixImageTools.Components</span><span class="o">.</span><span class="n">is_image?</span><span class="p" data-group-id="1481512413-1">(</span><span class="s">&quot;photo.jpg&quot;</span><span class="p" data-group-id="1481512413-1">)</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="nc">PhoenixImageTools.Components</span><span class="o">.</span><span class="n">is_image?</span><span class="p" data-group-id="0699129059-1">(</span><span class="s">&quot;photo.jpg&quot;</span><span class="p" data-group-id="0699129059-1">)</span><span class="w">
 </span><span class="no">true</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">PhoenixImageTools.Components</span><span class="o">.</span><span class="n">is_image?</span><span class="p" data-group-id="1481512413-2">(</span><span class="s">&quot;document.pdf&quot;</span><span class="p" data-group-id="1481512413-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">PhoenixImageTools.Components</span><span class="o">.</span><span class="n">is_image?</span><span class="p" data-group-id="0699129059-2">(</span><span class="s">&quot;document.pdf&quot;</span><span class="p" data-group-id="0699129059-2">)</span><span class="w">
 </span><span class="no">false</span></code></pre>
   </section>
 </section>
@@ -591,9 +591,9 @@ them for insertion into database records. See its documentation for details.</p>
       <p>
 
           <span class="line">
-            <a href="https://hex.pm/packages/phoenix_image_tools/0.1.0" class="footer-hex-package">Hex Package</a>
+            <a href="https://hex.pm/packages/phoenix_image_tools/0.2.0" class="footer-hex-package">Hex Package</a>
 
-            <a href="https://preview.hex.pm/preview/phoenix_image_tools/0.1.0">Hex Preview</a>
+            <a href="https://preview.hex.pm/preview/phoenix_image_tools/0.2.0">Hex Preview</a>
 
           </span>
 

@@ -5,10 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.37.3">
-    <meta name="project" content="phoenix_image_tools v0.1.0">
+    <meta name="project" content="phoenix_image_tools v0.2.0">
 
 
-    <title>PhoenixImageTools.Storage.S3 — phoenix_image_tools v0.1.0</title>
+    <title>PhoenixImageTools.Storage.S3 — phoenix_image_tools v0.2.0</title>
 
     <link rel="stylesheet" href="dist/html-elixir-6X3L5KMG.css" />
 
@@ -37,7 +37,7 @@
 phoenix_image_tools
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.1.0
+          v0.2.0
         </div>
       </div>
     </div>
@@ -76,7 +76,7 @@ phoenix_image_tools
   <div class="heading-with-actions top-heading">
     <h1>
       <span translate="no">PhoenixImageTools.Storage.S3</span> 
-      <small class="app-vsn" translate="no">(phoenix_image_tools v0.1.0)</small>
+      <small class="app-vsn" translate="no">(phoenix_image_tools v0.2.0)</small>
 
     </h1>
 
@@ -102,8 +102,8 @@ phoenix_image_tools
 
 </span><span class="c1"># Configure ExAws</span><span class="w">
 </span><span class="n">config</span><span class="w"> </span><span class="ss">:ex_aws</span><span class="p">,</span><span class="w">
-  </span><span class="ss">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4675603237-1">[</span><span class="p" data-group-id="4675603237-2">{</span><span class="ss">:system</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AWS_ACCESS_KEY_ID&quot;</span><span class="p" data-group-id="4675603237-2">}</span><span class="p">,</span><span class="w"> </span><span class="ss">:instance_role</span><span class="p" data-group-id="4675603237-1">]</span><span class="p">,</span><span class="w">
-  </span><span class="ss">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4675603237-3">[</span><span class="p" data-group-id="4675603237-4">{</span><span class="ss">:system</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AWS_SECRET_ACCESS_KEY&quot;</span><span class="p" data-group-id="4675603237-4">}</span><span class="p">,</span><span class="w"> </span><span class="ss">:instance_role</span><span class="p" data-group-id="4675603237-3">]</span></code></pre>
+  </span><span class="ss">access_key_id</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9931410995-1">[</span><span class="p" data-group-id="9931410995-2">{</span><span class="ss">:system</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AWS_ACCESS_KEY_ID&quot;</span><span class="p" data-group-id="9931410995-2">}</span><span class="p">,</span><span class="w"> </span><span class="ss">:instance_role</span><span class="p" data-group-id="9931410995-1">]</span><span class="p">,</span><span class="w">
+  </span><span class="ss">secret_access_key</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9931410995-3">[</span><span class="p" data-group-id="9931410995-4">{</span><span class="ss">:system</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AWS_SECRET_ACCESS_KEY&quot;</span><span class="p" data-group-id="9931410995-4">}</span><span class="p">,</span><span class="w"> </span><span class="ss">:instance_role</span><span class="p" data-group-id="9931410995-3">]</span></code></pre>
     </section>
 
 </div>
@@ -233,8 +233,8 @@ uploading them to S3 with appropriate metadata.</p><p>Returns a map with URLs fo
   </a>
   <span class="text">Examples</span>
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="nc">MyApp.Storage.S3</span><span class="o">.</span><span class="n">upload_to_complete_set</span><span class="p" data-group-id="2138069024-1">(</span><span class="n">upload</span><span class="p" data-group-id="2138069024-1">)</span><span class="w">
-</span><span class="p" data-group-id="2138069024-2">%{</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="nc">MyApp.Storage.S3</span><span class="o">.</span><span class="n">upload_to_complete_set</span><span class="p" data-group-id="9343172014-1">(</span><span class="n">upload</span><span class="p" data-group-id="9343172014-1">)</span><span class="w">
+</span><span class="p" data-group-id="9343172014-2">%{</span><span class="w">
   </span><span class="s">&quot;320&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;https://bucket.s3.amazonaws.com/articles/xs_uuid.webp&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s">&quot;768&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;https://bucket.s3.amazonaws.com/articles/sm_uuid.webp&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s">&quot;1024&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;https://bucket.s3.amazonaws.com/articles/md_uuid.webp&quot;</span><span class="p">,</span><span class="w">
@@ -242,7 +242,7 @@ uploading them to S3 with appropriate metadata.</p><p>Returns a map with URLs fo
   </span><span class="s">&quot;1536&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;https://bucket.s3.amazonaws.com/articles/xl_uuid.webp&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s">&quot;default&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;https://bucket.s3.amazonaws.com/articles/xl_uuid.webp&quot;</span><span class="p">,</span><span class="w">
   </span><span class="s">&quot;thumbnail&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;https://bucket.s3.amazonaws.com/articles/xs_uuid.webp&quot;</span><span class="w">
-</span><span class="p" data-group-id="2138069024-2">}</span></code></pre>
+</span><span class="p" data-group-id="9343172014-2">}</span></code></pre>
   </section>
 </section>
 
@@ -253,9 +253,9 @@ uploading them to S3 with appropriate metadata.</p><p>Returns a map with URLs fo
       <p>
 
           <span class="line">
-            <a href="https://hex.pm/packages/phoenix_image_tools/0.1.0" class="footer-hex-package">Hex Package</a>
+            <a href="https://hex.pm/packages/phoenix_image_tools/0.2.0" class="footer-hex-package">Hex Package</a>
 
-            <a href="https://preview.hex.pm/preview/phoenix_image_tools/0.1.0">Hex Preview</a>
+            <a href="https://preview.hex.pm/preview/phoenix_image_tools/0.2.0">Hex Preview</a>
 
           </span>
 

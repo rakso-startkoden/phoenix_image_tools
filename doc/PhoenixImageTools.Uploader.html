@@ -5,10 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.37.3">
-    <meta name="project" content="phoenix_image_tools v0.1.0">
+    <meta name="project" content="phoenix_image_tools v0.2.0">
 
 
-    <title>PhoenixImageTools.Uploader — phoenix_image_tools v0.1.0</title>
+    <title>PhoenixImageTools.Uploader — phoenix_image_tools v0.2.0</title>
 
     <link rel="stylesheet" href="dist/html-elixir-6X3L5KMG.css" />
 
@@ -37,7 +37,7 @@
 phoenix_image_tools
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.1.0
+          v0.2.0
         </div>
       </div>
     </div>
@@ -76,7 +76,7 @@ phoenix_image_tools
   <div class="heading-with-actions top-heading">
     <h1>
       <span translate="no">PhoenixImageTools.Uploader</span> 
-      <small class="app-vsn" translate="no">(phoenix_image_tools v0.1.0)</small>
+      <small class="app-vsn" translate="no">(phoenix_image_tools v0.2.0)</small>
 
     </h1>
 
@@ -96,20 +96,20 @@ multiple image sizes and format conversion.</p><h2 id="module-usage" class="sect
   </a>
   <span class="text">Usage</span>
 </h2>
-<pre><code class="makeup elixir" translate="no"><span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyApp.Uploaders.ProfileImageUploader</span><span class="w"> </span><span class="k" data-group-id="4776776180-1">do</span><span class="w">
+<pre><code class="makeup elixir" translate="no"><span class="kd">defmodule</span><span class="w"> </span><span class="nc">MyApp.Uploaders.ProfileImageUploader</span><span class="w"> </span><span class="k" data-group-id="7088289290-1">do</span><span class="w">
   </span><span class="kn">use</span><span class="w"> </span><span class="nc">PhoenixImageTools.Uploader</span><span class="w">
 
   </span><span class="na">@extension_whitelist</span><span class="w"> </span><span class="sx">~w(.jpg .jpeg .gif .png .webp)</span><span class="w">
 
-  </span><span class="kd">def</span><span class="w"> </span><span class="nf">validate</span><span class="p" data-group-id="4776776180-2">(</span><span class="p" data-group-id="4776776180-3">{</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p" data-group-id="4776776180-3">}</span><span class="p" data-group-id="4776776180-2">)</span><span class="w"> </span><span class="k" data-group-id="4776776180-4">do</span><span class="w">
-    </span><span class="n">file_extension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="n">file_name</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Path</span><span class="o">.</span><span class="n">extname</span><span class="p" data-group-id="4776776180-5">(</span><span class="p" data-group-id="4776776180-5">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">String</span><span class="o">.</span><span class="n">downcase</span><span class="p" data-group-id="4776776180-6">(</span><span class="p" data-group-id="4776776180-6">)</span><span class="w">
-    </span><span class="nc">Enum</span><span class="o">.</span><span class="n">member?</span><span class="p" data-group-id="4776776180-7">(</span><span class="na">@extension_whitelist</span><span class="p">,</span><span class="w"> </span><span class="n">file_extension</span><span class="p" data-group-id="4776776180-7">)</span><span class="w">
-  </span><span class="k" data-group-id="4776776180-4">end</span><span class="w">
+  </span><span class="kd">def</span><span class="w"> </span><span class="nf">validate</span><span class="p" data-group-id="7088289290-2">(</span><span class="p" data-group-id="7088289290-3">{</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="bp">_</span><span class="p" data-group-id="7088289290-3">}</span><span class="p" data-group-id="7088289290-2">)</span><span class="w"> </span><span class="k" data-group-id="7088289290-4">do</span><span class="w">
+    </span><span class="n">file_extension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">file</span><span class="o">.</span><span class="n">file_name</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Path</span><span class="o">.</span><span class="n">extname</span><span class="p" data-group-id="7088289290-5">(</span><span class="p" data-group-id="7088289290-5">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">String</span><span class="o">.</span><span class="n">downcase</span><span class="p" data-group-id="7088289290-6">(</span><span class="p" data-group-id="7088289290-6">)</span><span class="w">
+    </span><span class="nc">Enum</span><span class="o">.</span><span class="n">member?</span><span class="p" data-group-id="7088289290-7">(</span><span class="na">@extension_whitelist</span><span class="p">,</span><span class="w"> </span><span class="n">file_extension</span><span class="p" data-group-id="7088289290-7">)</span><span class="w">
+  </span><span class="k" data-group-id="7088289290-4">end</span><span class="w">
 
-  </span><span class="kd">def</span><span class="w"> </span><span class="nf">storage_dir</span><span class="p" data-group-id="4776776180-8">(</span><span class="bp">_</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4776776180-9">{</span><span class="c">_file</span><span class="p">,</span><span class="w"> </span><span class="c">_scope</span><span class="p" data-group-id="4776776180-9">}</span><span class="p" data-group-id="4776776180-8">)</span><span class="w"> </span><span class="k" data-group-id="4776776180-10">do</span><span class="w">
+  </span><span class="kd">def</span><span class="w"> </span><span class="nf">storage_dir</span><span class="p" data-group-id="7088289290-8">(</span><span class="bp">_</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7088289290-9">{</span><span class="c">_file</span><span class="p">,</span><span class="w"> </span><span class="c">_scope</span><span class="p" data-group-id="7088289290-9">}</span><span class="p" data-group-id="7088289290-8">)</span><span class="w"> </span><span class="k" data-group-id="7088289290-10">do</span><span class="w">
     </span><span class="s">&quot;uploads/profile_images&quot;</span><span class="w">
-  </span><span class="k" data-group-id="4776776180-10">end</span><span class="w">
-</span><span class="k" data-group-id="4776776180-1">end</span></code></pre>
+  </span><span class="k" data-group-id="7088289290-10">end</span><span class="w">
+</span><span class="k" data-group-id="7088289290-1">end</span></code></pre>
     </section>
 
 </div>
@@ -119,9 +119,9 @@ multiple image sizes and format conversion.</p><h2 id="module-usage" class="sect
       <p>
 
           <span class="line">
-            <a href="https://hex.pm/packages/phoenix_image_tools/0.1.0" class="footer-hex-package">Hex Package</a>
+            <a href="https://hex.pm/packages/phoenix_image_tools/0.2.0" class="footer-hex-package">Hex Package</a>
 
-            <a href="https://preview.hex.pm/preview/phoenix_image_tools/0.1.0">Hex Preview</a>
+            <a href="https://preview.hex.pm/preview/phoenix_image_tools/0.2.0">Hex Preview</a>
 
           </span>
 

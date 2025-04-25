@@ -126,6 +126,10 @@ defmodule PhoenixImageTools.Uploader do
         end
       end
 
+      def versions do
+        @versions
+      end
+
       defoverridable storage_dir: 2,
                      validate: 1,
                      filename: 2
