@@ -40,7 +40,14 @@ defmodule PhoenixImageTools.Storage.S3 do
         "thumbnail" => "https://bucket.s3.amazonaws.com/articles/xs_uuid.webp"
       }
   """
-  def upload_to_complete_set(%Plug.Upload{} = image_upload, prefix \\ "articles") do
+  def upload_to_complete_set(%Plug.Upload{} = image_upload, options \\ []) do
+    defaults = [
+      prefix: "uploads",
+      asset_host: PhoenixImageTools.asset_host()
+    ]
+
+    options = options |> Keyword.validate!(defaults) |> Map.new()
+
     file_path = image_upload.path
 
     uuid = Ecto.UUID.generate()
@@ -56,12 +63,12 @@ defmodule PhoenixImageTools.Storage.S3 do
           |> Image.stream!(PhoenixImageTools.stream_image_options())
           |> ExAws.S3.upload(
             PhoenixImageTools.bucket_name(),
-            "#{prefix}/#{file_name}",
+            "#{options.prefix}/#{file_name}",
             content_type: "image/#{PhoenixImageTools.output_extension()}",
             cache_control: "public, max-age=#{PhoenixImageTools.max_age()}"
           )
           |> ExAws.request()
-          |> build_url()
+          |> build_url(options)
 
         {width, url}
       end)
@@ -83,15 +90,19 @@ defmodule PhoenixImageTools.Storage.S3 do
   @doc """
   Builds a URL for an S3 object.
   """
-  def build_url({:ok, %{body: %{key: location}}}) do
+  def build_url({:ok, %{body: %{key: location}}}, options) do
     :s3
     |> ExAws.Config.new([])
-    |> build_url(PhoenixImageTools.bucket_name(), location)
+    |> build_url(PhoenixImageTools.bucket_name(), location, options)
   end
 
-  def build_url(config, bucket, object) do
+  def build_url(config, bucket, object, %{asset_host: nil}) do
     port = ""
 
     {:ok, "#{config[:scheme]}#{config[:host]}#{port}/#{bucket}/#{object}"}
+  end
+
+  def build_url(_config, _bucket, object, %{asset_host: asset_host} = options) when is_binary(asset_host) do
+    {:ok, "#{options.asset_host}/#{object}"}
   end
 end

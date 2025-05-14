@@ -103,4 +103,11 @@ defmodule PhoenixImageTools do
     get_in(Application.get_env(:phoenix_image_tools, :storage, []), [:bucket]) ||
       raise "No bucket name configured for PhoenixImageTools"
   end
+
+  @doc """
+  Returns the configured write options for image processing.
+  """
+  def asset_host do
+    get_in(Application.get_env(:phoenix_image_tools, :storage, []), [:asset_host])
+  end
 end
