@@ -470,8 +470,7 @@ defmodule PhoenixImageTools.Components do
   This format is compatible with `cast_attachments/4` from `PhoenixImageTools.Schema`.
   """
   @spec consume_uploads(Socket.t(), map(), atom(), keyword()) :: map()
-  def consume_uploads(socket, params, field_key, options \\ [])
-      when is_atom(field_key) and is_map(params) do
+  def consume_uploads(socket, params, field_key, options \\ []) when is_atom(field_key) and is_map(params) do
     defaults = [
       generate_names: false,
       extension: "image"
@@ -514,8 +513,7 @@ defmodule PhoenixImageTools.Components do
       uploaded_files when is_list(uploaded_files) ->
         # Merge new uploads with existing ones
         upload_params =
-          Enum.reduce(Enum.with_index(uploaded_files), upload_params, fn {uploaded_file, index},
-                                                                         acc ->
+          Enum.reduce(Enum.with_index(uploaded_files), upload_params, fn {uploaded_file, index}, acc ->
             # Use the next available index for the new file
             Map.put(acc, "#{length(Map.keys(upload_params)) + index}", uploaded_file)
           end)
@@ -589,8 +587,7 @@ defmodule PhoenixImageTools.Components do
   ```
   """
   @spec consume_upload(Socket.t(), map(), atom(), keyword()) :: map()
-  def consume_upload(socket, params, field_key, options \\ [])
-      when is_atom(field_key) and is_map(params) do
+  def consume_upload(socket, params, field_key, options \\ []) when is_atom(field_key) and is_map(params) do
     defaults = [
       generate_name: false,
       extension: "image",
@@ -636,9 +633,7 @@ defmodule PhoenixImageTools.Components do
 
       multiple_files when is_list(multiple_files) ->
         # Warn about multiple files but just use the first one
-        IO.warn(
-          "Multiple files uploaded for single file field #{field_key}, using only the first one."
-        )
+        IO.warn("Multiple files uploaded for single file field #{field_key}, using only the first one.")
 
         options.merge_fun.(params, field_key, List.first(multiple_files))
     end
