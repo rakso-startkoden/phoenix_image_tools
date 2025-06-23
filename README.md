@@ -65,6 +65,9 @@ config :phoenix_image_tools,
 
 ## Usage
 
+### CLI tool
+`mix phx_images.optimize path/to/image.jpg -o output_folder`
+
 ### Image Uploader
 
 Define your uploader module:
