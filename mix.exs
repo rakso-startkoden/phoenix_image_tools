@@ -27,12 +27,12 @@ defmodule PhoenixImageTools.MixProject do
 
   defp deps do
     [
-      {:phoenix, "~> 1.7.21"},
-      {:phoenix_live_view, "~> 1.0.9"},
+      {:phoenix, "~> 1.8.0"},
+      {:phoenix_live_view, "~> 1.1.1"},
       {:phoenix_html, "~> 4.2.1"},
       {:waffle, "~> 1.1.9"},
       {:waffle_ecto, "~> 0.0.12"},
-      {:image, "~> 0.59.0"},
+      {:image, "~> 0.61.1"},
       {:ex_aws, "~> 2.5.8"},
       {:ex_aws_s3, "~> 2.5.6"},
       {:hackney, "~> 1.23"},

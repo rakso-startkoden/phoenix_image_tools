@@ -3,3 +3,4 @@ _build
 .elixir_ls
 /doc
 /tmp
+/output_folder
